@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="HABIBULLAH MOHAMED RELA - Electrical, Electronics, Robotics and Arduino Projects.">
+
+<title>HABIBULLAH MOHAMED RELA | Electrical & Electronics</title>
+
+<style>
+:root {
+  --bg: #07111f;
+  --card: #101f32;
+  --text: #f3f7ff;
+  --muted: #a8b6c9;
+  --accent: #00c8ff;
+  --accent2: #147bff;
+  --border: #24364b;
+}
+
+.light {
+  --bg: #f1f6fc;
+  --card: #ffffff;
+  --text: #122238;
+  --muted: #53647a;
+  --border: #d8e2ef;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: .3s;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 15px 7%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+.navlinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.navlinks a:hover {
+  color: var(--accent);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 15px;
+  background: var(--accent2);
+  color: white;
+  font-weight: bold;
+}
+
+.menu-btn {
+  display: none;
+}
+
+section {
+  padding: 75px 8%;
+}
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(ellipse at top, #103c60 0%, var(--bg) 65%);
+}
+
+.hero h1 {
+  font-size: clamp(32px, 6vw, 65px);
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: var(--accent);
+}
+
+.hero p {
+  max-width: 650px;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.tag {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 30px;
+  padding: 7px 16px;
+  font-size: 13px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 7px;
+  background: var(--accent2);
+  color: white;
+  margin: 5px;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading h2 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.heading p {
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 22px;
+}
+
+.card {
+  background: var(--card);
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.card .icon {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.about {
+  background: var(--card);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-content p {
+  color: var(--muted);
+  margin-top: 15px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.skill {
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 10px 18px;
+  border-radius: 20px;
+  color: var(--accent);
+}
+
+.project-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.project-image {
+  height: 145px;
+  background: linear-gradient(135deg, #123d62, #07111f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 55px;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info p {
+  margin: 8px 0 15px;
+}
+
+.project-info button {
+  margin-top: 5px;
+}
+
+#contact {
+  background: var(--card);
+}
+
+.contact-box {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin: 12px;
+}
+
+.contact-box input,
+.contact-box textarea {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.contact-box textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer span {
+  color: var(--accent);
+}
+
+@media(max-width: 750px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    padding: 20px;
+    flex-direction: column;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navlinks.show {
+    display: flex;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+
+<div class="logo">HMR. TECH</div>
+
+<div class="navlinks" id="navlinks">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#services">Works</a>
+<a href="#electrical-work">Electrical Work</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div>
+<button onclick="toggleTheme()">☀ / ☾</button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+</nav>
+</header>
+
+<section class="hero" id="home">
+
+<div class="tag">WELCOME TO MY TECH WORLD</div>
+
+<h1>HABIBULLAH <span>MOHAMED RELA</span></h1>
+
+<h2>Electrical & Electronics Works</h2>
+
+<p>
+Exploring electrical technology, designing electronic
+systems, building Arduino projects, robotics and
+innovative automation solutions.
+</p>
+
+<div>
+<a class="btn" href="#electrical-work">Explore Electrical Work</a>
+<a class="btn btn-outline" href="#contact">Contact Me</a>
+</div>
+
+</section>
+
+<section id="about">
+
+<div class="heading">
+<h2>About Me</h2>
+<p>My interest in technology and engineering</p>
+</div>
+
+<div class="about-content">
+
+<h3>Welcome to HABIBULLAH MOHAMED RELA</h3>
+
+<p>
+I am interested in electrical and electronics technology,
+robotics, Arduino programming, automation and innovative
+engineering projects.
+</p>
+
+<p>
+My goal is to explore new technologies, develop practical
+projects and learn how engineering can solve real-world
+problems.
+</p>
+
+</div>
+</section>
+
+<section id="services">
+
+<div class="heading">
+<h2>Electrical & Electronics Works</h2>
+<p>Explore my areas of interest</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">⚡</div>
+<h3>Electrical Systems</h3>
+<p>Electrical fundamentals, components, circuits and electrical system concepts.</p>
+</div>
+
+<div class="card">
+<div class="icon">🔌</div>
+<h3>Electronics</h3>
+<p>Electronic components, sensors, circuit design and testing.</p>
+</div>
+
+<div class="card">
+<div class="icon">🤖</div>
+<h3>Robotics</h3>
+<p>Arduino-based robots, obstacle detection and intelligent automation.</p>
+</div>
+
+<div class="card">
+<div class="icon">💻</div>
+<h3>Programming</h3>
+<p>Arduino C++, embedded programming and electronic control systems.</p>
+</div>
+
+<div class="card">
+<div class="icon">📡</div>
+<h3>IoT Technology</h3>
+<p>ESP32, wireless communication, Bluetooth and connected devices.</p>
+</div>
+
+<div class="card">
+<div class="icon">⚙️</div>
+<h3>Automation</h3>
+<p>Relay control, sensors and automated electronic systems.</p>
+</div>
+
+</div>
+</section>
+
+<section id="electrical-work">
+
+<div class="heading">
+<h2>Electrical & Electronics Works</h2>
+<p>Electrical installation topics, wiring concepts and motor control systems</p>
+</div>
+
+<div class="grid">
+
+<div class="card project-card">
+<div class="project-image">🔋</div>
+<div class="project-info">
+<h3>Inverter Wiring</h3>
+<p>Learn about inverter systems, battery connections, changeover concepts and backup power arrangements.</p>
+</div>
+</div>
+
+<div class="card project-card">
+<div class="project-image">💡</div>
+<div class="project-info">
+<h3>AC Wiring</h3>
+<p>Explore air-conditioner electrical system concepts, supply requirements, protection devices and maintenance awareness.</p>
+</div>
+</div>
+
+<div class="card project-card">
+<div class="project-image">⚙️</div>
+<div class="project-info">
+<h3>Automatic Motor Controller</h3>
+<p>Discover automatic water-level control, motor starters, sensors and control-panel concepts.</p>
+</div>
+</div>
+
+<div class="card project-card">
+<div class="project-image">🏠</div>
+<div class="project-info">
+<h3>Home Wiring</h3>
+<p>Explore household electrical layouts, lighting and socket-circuit concepts, earthing, protective devices and energy safety.</p>
+</div>
+</div>
+
+<div class="card project-card">
+<div class="project-image">⚡</div>
+<div class="project-info">
+<h3>Meter Board Wiring</h3>
+<p>Understand the purpose of an electricity meter board, meter reading, main switch and approved protective equipment.</p>
+</div>
+</div>
+
+</div>
+
+<p style="max-width:850px;margin:28px auto 0;text-align:center;color:var(--muted);">
+<strong>Electrical safety:</strong> Inverter, AC, motor, home and meter-board work can involve dangerous voltages and currents. This website provides educational overviews only. Practical installation, testing and repairs must be carried out by a qualified electrician using proper isolation and protection.
+</p>
+
+</section>
+
+<section id="skills">
+
+<div class="heading">
+<h2>Technologies & Components</h2>
+<p>Tools and platforms I explore</p>
+</div>
+
+<div class="skills">
+
+<span class="skill">Arduino UNO</span>
+<span class="skill">ESP32</span>
+<span class="skill">ESP32-CAM</span>
+<span class="skill">HC-SR04</span>
+<span class="skill">MQ-2 Sensor</span>
+<span class="skill">DHT11</span>
+<span class="skill">HC-05</span>
+<span class="skill">Relay Modules</span>
+<span class="skill">LCD Displays</span>
+<span class="skill">C++</span>
+<span class="skill">HTML</span>
+<span class="skill">CSS</span>
+<span class="skill">JavaScript</span>
+
+</div>
+</section>
+
+<section id="contact">
+
+<div class="heading">
+<h2>Contact Me</h2>
+<p>Have a project idea or technology question?</p>
+</div>
+
+<div class="contact-box">
+
+<h3>Let's Connect!</h3>
+<p>Send an enquiry using the form below.</p>
+
+<form id="contactForm">
+
+<input id="visitorName" type="text"
+placeholder="Your Name" required>
+
+<input id="visitorEmail" type="email"
+placeholder="Your Email" required>
+
+<textarea id="visitorMessage"
+placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Enquiry</button>
+
+</form>
+
+<p id="formStatus"></p>
+
+</div>
+</section>
+
+<footer>
+
+<p>© <span id="year"></span> HABIBULLAH MOHAMED RELA</p>
+
+<p>Electrical | Electronics | Robotics | Technology</p>
+
+<p>Designed with passion for engineering.</p>
+
+</footer>
+
+<script>
+
+function toggleTheme() {
+document.body.classList.toggle("light");
+}
+
+function toggleMenu() {
+document.getElementById("navlinks").classList.toggle("show");
+}
+
+document.querySelectorAll(".navlinks a").forEach(link => {
+link.addEventListener("click", () => {
+document.getElementById("navlinks").classList.remove("show");
+});
+});
+
+function showProject(name) {
+alert(name + "\n\nProject information and photographs can be added here.");
+}
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+
+e.preventDefault();
+
+const name = document.getElementById("visitorName").value.trim();
+const email = document.getElementById("visitorEmail").value.trim();
+const message = document.getElementById("visitorMessage").value.trim();
+
+// CHANGE THIS TO YOUR EMAIL ADDRESS
+const myEmail = "mohamedrela099@gmal.com";
+
+if (myEmail === "mohamedrela099@gmal.com") {
+
+document.getElementById("formStatus").textContent =
+"Please configure your email address in the website code first.";
+
+return;
+}
+
+const subject = encodeURIComponent("Website enquiry from " + name);
+
+const body = encodeURIComponent(
+"Name: " + name +
+"\nEmail: " + email +
+"\nMessage: " + message
+);
+
+window.location.href =
+"mailto:" + myEmail +
+"?subject=" + subject +
+"&body=" + body;
+
+});
+
+</script>
+
+</body>
+</html>
